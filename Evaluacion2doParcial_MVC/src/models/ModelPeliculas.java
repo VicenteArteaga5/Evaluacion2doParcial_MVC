@@ -72,7 +72,7 @@ public class ModelPeliculas {
     
     public void conectar(){
         try{
-            conexion = DriverManager.getConnection("jdbc:mysql:/localhost/Acme_MVC","user","paswword");
+            conexion = DriverManager.getConnection("jdbc:potsgresql:/localhost:5432/Peliculas","potsgres","paswword");
             st = conexion.createStatement();
         } catch (SQLException ex){
             JOptionPane.showMessageDialog(null,"Error 101");   

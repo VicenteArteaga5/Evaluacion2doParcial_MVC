@@ -17,21 +17,21 @@ import javax.swing.JOptionPane;
  *
  * @author Vicente Arteaga
  */
-public class ModelPersonas {
+public class ModelClientes {
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
     private PreparedStatement ps;
     private String sql;
     
-    private int direccion_id;
+    private int cliente_id;
     private String nombre;
     private int telefono;
     private String email;
     private String direccion;
     
-    public void setDireccion_id(int direccion_id){
-        this.direccion_id = direccion_id;
+    public void setCliente_id(int cliente_id){
+        this.cliente_id = cliente_id;
     }
     
     public void setNombre (String nombre){
@@ -50,8 +50,8 @@ public class ModelPersonas {
         this.direccion = direccion;
     }
     
-    public int getDireccion_id(){
-        return direccion_id;
+    public int getCliente_id(){
+        return cliente_id;
     }
     
     public String getNombre(){
@@ -72,7 +72,7 @@ public class ModelPersonas {
     
     public void conectar(){
         try{
-            conexion = DriverManager.getConnection("jdbc:mysql:/localhost:/Acme_MVC","user","paswword");
+            conexion = DriverManager.getConnection("jdbc:potsgresql:/localhost:5432/Peliculas","potsgres","paswword");
             st = conexion.createStatement();
         } catch (SQLException ex){
             JOptionPane.showMessageDialog(null,"Error 101");   
@@ -81,7 +81,7 @@ public class ModelPersonas {
     
     public void llenarValores(){
         try {
-            setDireccion_id(rs.getInt("direccion_id"));
+            setCliente_id(rs.getInt("cliente_id"));
             setNombre(rs.getString("nombre"));
             setEmail(rs.getString("email"));
             setTelefono(rs.getInt("telefono"));
@@ -130,7 +130,7 @@ public class ModelPersonas {
     
     public void seleccionarTodos(){
         try {
-            sql="select * from direcciones;";
+            sql="select * from clientes;";
             ps=conexion.prepareStatement(sql);
             rs=ps.executeQuery();
             moverPrimero();
@@ -141,7 +141,7 @@ public class ModelPersonas {
     
     public void guardar(){
         try {
-            sql="Insert into direcciones(nombre,email,telefono,direccio) values (?,?,?,?);";
+            sql="Insert into Clientes(nombre,email,telefono,direccion) values (?,?,?,?);";
             ps=conexion.prepareStatement(sql);
             ps.setString(0,nombre);
             ps.setInt(1,telefono);
@@ -156,14 +156,13 @@ public class ModelPersonas {
     
     public void modificar(){
         try {
-            sql="update direcciones SET nombre=?, telefono=?, email=?, direccion=? WHERE direccion_id=?;";
+            sql="update Clientes SET nombre=?, telefono=?, email=?, direccion=? WHERE cliente_id=?;";
             ps=conexion.prepareStatement(sql);
             ps.setString(0,nombre);
             ps.setInt(1,telefono);
             ps.setString(2,email);
             ps.setString(3,direccion);
             ps.executeUpdate();
-            System.out.println("nel");
             moverPrimero();
             seleccionarTodos();
         } catch (SQLException ex) {
@@ -173,9 +172,9 @@ public class ModelPersonas {
     
     public void eliminar(){
         try {
-            sql="delete from direcciones where direccion_id=?;";
+            sql="delete from Clientes where cliente_id=?;";
             ps=conexion.prepareStatement(sql);
-            ps.setInt(0, direccion_id);
+            ps.setInt(0, cliente_id);
             ps.executeUpdate();
             moverPrimero();
             seleccionarTodos();

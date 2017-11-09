@@ -9,12 +9,12 @@ package views;
  *
  * @author Vicente Arteaga
  */
-public class ViewPersonas extends javax.swing.JPanel {
+public class ViewClientes extends javax.swing.JPanel {
 
     /**
      * Creates new form ViewPersonas
      */
-    public ViewPersonas() {
+    public ViewClientes() {
         initComponents();
     }
 
@@ -187,10 +187,10 @@ public class ViewPersonas extends javax.swing.JPanel {
     private javax.swing.JLabel jl_email;
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_telefono;
-    private javax.swing.JTextField jtf_cliente_id;
-    private javax.swing.JTextField jtf_direccion;
-    private javax.swing.JTextField jtf_email;
-    private javax.swing.JTextField jtf_nombre;
-    private javax.swing.JTextField jtf_telefono;
+    public javax.swing.JTextField jtf_cliente_id;
+    public javax.swing.JTextField jtf_direccion;
+    public javax.swing.JTextField jtf_email;
+    public javax.swing.JTextField jtf_nombre;
+    public javax.swing.JTextField jtf_telefono;
     // End of variables declaration//GEN-END:variables
 }

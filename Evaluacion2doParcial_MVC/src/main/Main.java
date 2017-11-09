@@ -18,11 +18,11 @@ public class Main {
         ModelPeliculas model_peliculas = new ModelPeliculas();
         ViewPeliculas view_peliculas = new ViewPeliculas();
         
-        ModelPersonas model_personas = new ModelPersonas();
-        ViewPersonas view_personas = new ViewPersonas();
+        ModelClientes model_personas = new ModelClientes();
+        ViewClientes view_personas = new ViewClientes();
         
         ControllerPeliculas controller_peliculas = new ControllerPeliculas();
-        ControllerPersonas controller_personas = new ControllerPersonas();
+        ControllerClientes controller_personas = new ControllerClientes();
         
     }
 }
