@@ -14,15 +14,29 @@ import controllers.*;
  * @author Vicente Arteaga
  */
 public class Main {
-    public static void main(String var[]){
-        ModelPeliculas model_peliculas = new ModelPeliculas();
-        ViewPeliculas view_peliculas = new ViewPeliculas();
+    private static ViewPrincipal view_principal;
+    private static ModelPrincipal model_principal;
+    private static ControllerPrincipal controller_principal;
+    
+    private static ViewPeliculas view_peliculas;
+    private static ModelPeliculas model_peliculas;
+    private static ControllerPeliculas controllor_peliculas;
+    
+    private static ViewClientes view_clientes;
+    private static ModelClientes model_clientes;
+    private static ControllerClientes controller_clientes;
+    
+    public static void main (String var[]){
+        view_clientes = new ViewClientes();
+        model_clientes = new ModelClientes();
+        controller_clientes = new ControllerClientes();
         
-        ModelClientes model_personas = new ModelClientes();
-        ViewClientes view_personas = new ViewClientes();
+        view_peliculas = new ViewPeliculas();
+        model_peliculas = new ModelPeliculas();
+        controllor_peliculas = new ControllerPeliculas();
         
-        ControllerPeliculas controller_peliculas = new ControllerPeliculas();
-        ControllerClientes controller_personas = new ControllerClientes();
-        
+        view_principal = new ViewPrincipal();
+        model_principal = new ModelPrincipal();
+        controller_principal =new ControllerPrincipal(view_principal, view_clientes, view_peliculas, model_principal);
     }
-}
+  }

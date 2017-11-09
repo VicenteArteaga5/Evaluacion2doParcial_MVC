@@ -5,8 +5,8 @@
  */
 package controllers;
 
-import models.ModelClientes;
-import views.ViewClientes;
+import models.*;
+import views.*;
 
 /**
  *

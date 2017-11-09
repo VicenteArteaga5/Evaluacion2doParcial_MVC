@@ -36,7 +36,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.green);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Opciones");
 
         jmi_peliculas.setText("Peliculas");
         jMenu1.add(jmi_peliculas);
@@ -45,8 +45,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jMenu1.add(jmi_clientes);
 
         jMenuBar.add(jMenu1);
-
-        jMenu2.setText("Edit");
         jMenuBar.add(jMenu2);
 
         setJMenuBar(jMenuBar);
@@ -101,10 +99,10 @@ public class ViewPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    public javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JMenuItem jmi_clientes;
-    private javax.swing.JMenuItem jmi_peliculas;
+    public javax.swing.JMenuBar jMenuBar;
+    public javax.swing.JMenuItem jmi_clientes;
+    public javax.swing.JMenuItem jmi_peliculas;
     // End of variables declaration//GEN-END:variables
 }
