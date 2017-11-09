@@ -17,57 +17,75 @@ import javax.swing.JOptionPane;
  *
  * @author Vicente Arteaga
  */
-public class ModelPeliculas {
+public class ModelRentas {
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
     private PreparedStatement ps;
     private String sql;
     
+    private int renta_id;
+    private int cliente_id;
     private int pelicula_id;
-    private String nombre;
-    private int duracion;
     private String formato;
-    private String descripcion;
+    private int costo_dia;
+    private String dias;
+    private int total_renta;
+    
+    public void setRenta_id(int renta_id){
+        this.renta_id = renta_id;
+    }
+    
+    public void setCliente_id(int cliente_id){
+        this.cliente_id = cliente_id;
+    }
     
     public void setPelicula_id(int pelicula_id){
         this.pelicula_id = pelicula_id;
     }
     
-    public void setNombre (String nombre){
-        this.nombre = nombre;
-    }
-    
-    public void setDuracion (int duracion){
-        this.duracion = duracion;
-    }
-    
-    public void setFormato (String formato){
+    public void setFormato(String formato){
         this.formato = formato;
     }
     
-    public void setDescripcion(String descripcion){
-        this.descripcion = descripcion;
+    public void setCosto_dia(int costo_dia){
+        this.costo_dia = costo_dia;
+    }
+    
+    public void setDias(String dias){
+        this.dias = dias;
+    }
+    
+    public void setTotal_renta(int total_renta){
+        this.total_renta = total_renta;
+    }
+    
+    public int getRenta_id(){
+        return renta_id;
+    }
+    
+    public int getCliente_id(){
+        return cliente_id;
     }
     
     public int getPelicula_id(){
         return pelicula_id;
     }
     
-    public String getNombre(){
-        return nombre;
-    } 
-    
-    public int getDuracion(){
-        return duracion;
-    }
-    
     public String getFormato(){
         return formato;
     }
     
-    public String getDescripcion(){
-        return descripcion;
+    public int getCosto_dia(){
+        return costo_dia;
+    }
+    
+    public String getDias(){
+        return dias;
+    }
+    
+    public int getTotal_renta(){
+        return total_renta;
     }
     
     public void conectar(){
@@ -81,11 +99,13 @@ public class ModelPeliculas {
     
     public void llenarValores(){
         try {
+            setRenta_id(rs.getInt("renta_id"));
+            setCliente_id(rs.getInt("cliente_id"));
             setPelicula_id(rs.getInt("pelicula_id"));
-            setNombre(rs.getString("nombre"));
-            setDescripcion(rs.getString("descripcion"));
-            setDuracion(rs.getInt("duracion"));
-            setFormato(rs.getString("formato"));
+            setFormato(rs.getNString("formato"));
+            setCosto_dia(rs.getInt("costo_dia"));
+            setDias(rs.getString("dias"));
+            setTotal_renta(rs.getInt("total_renta"));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error 102");   
         }
@@ -130,7 +150,7 @@ public class ModelPeliculas {
     
     public void seleccionarTodos(){
         try {
-            sql="select * from peliculas;";
+            sql="select * from rentas;";
             ps=conexion.prepareStatement(sql);
             rs=ps.executeQuery();
             moverPrimero();
@@ -141,12 +161,14 @@ public class ModelPeliculas {
     
     public void guardar(){
         try {
-            sql="Insert into peliculas(nombre,duracion,formato,descripcion) values (?,?,?,?);";
+            sql="Insert into rentas(cliente_id,pelicula_id,formato,costo_dia,dias,total_renta) values (?,?,?,?,?,?);";
             ps=conexion.prepareStatement(sql);
-            ps.setString(0,nombre);
-            ps.setInt(1,duracion);
+            ps.setInt(0,cliente_id);
+            ps.setInt(1,pelicula_id);
             ps.setString(2,formato);
-            ps.setString(3,descripcion);
+            ps.setInt(3,costo_dia);
+            ps.setString(4,dias);
+            ps.setInt(5,total_renta);
             ps.executeQuery();
             moverPrimero();
         } catch (SQLException ex) {
@@ -156,14 +178,15 @@ public class ModelPeliculas {
     
     public void modificar(){
         try {
-            sql="update peliculas SET nombre=?, duracion=?, formato=?, descripcion=? WHERE pelicula_id=?;";
+            sql="update rentas SET cliente_id=?, pelicula_id=?, formato=?, costo_dia=?, dias=?, total_renta=? WHERE renta_id=?;";
             ps=conexion.prepareStatement(sql);
-            ps.setString(0,nombre);
-            ps.setInt(1,duracion);
+            ps.setInt(0,cliente_id);
+            ps.setInt(1,pelicula_id);
             ps.setString(2,formato);
-            ps.setString(3,descripcion);
+            ps.setInt(3,costo_dia);
+            ps.setString(4,dias);
+            ps.setInt(5,total_renta);
             ps.executeUpdate();
-            System.out.println("nel");
             moverPrimero();
             seleccionarTodos();
         } catch (SQLException ex) {
@@ -173,9 +196,9 @@ public class ModelPeliculas {
     
     public void eliminar(){
         try {
-            sql="delete from peliculas where pelicula_id=?;";
+            sql="delete from renta where renta_id=?;";
             ps=conexion.prepareStatement(sql);
-            ps.setInt(0, pelicula_id);
+            ps.setInt(0, renta_id);
             ps.executeUpdate();
             moverPrimero();
             seleccionarTodos();

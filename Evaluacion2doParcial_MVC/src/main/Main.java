@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
 import models.*;
@@ -26,6 +21,10 @@ public class Main {
     private static ModelClientes model_clientes;
     private static ControllerClientes controller_clientes;
     
+    private static ViewRenta view_renta;
+    private static ModelRentas model_renta;
+    private static ControllerRenta controller_renta;
+    
     public static void main (String var[]){
         view_clientes = new ViewClientes();
         model_clientes = new ModelClientes();
@@ -35,8 +34,12 @@ public class Main {
         model_peliculas = new ModelPeliculas();
         controllor_peliculas = new ControllerPeliculas();
         
+        view_renta = new ViewRenta();
+        model_renta = new ModelRentas();
+        controller_renta = new ControllerRenta();
+        
         view_principal = new ViewPrincipal();
         model_principal = new ModelPrincipal();
-        controller_principal =new ControllerPrincipal(view_principal, view_clientes, view_peliculas, model_principal);
+        controller_principal = new ControllerPrincipal(view_principal, view_clientes, view_peliculas, view_renta, model_principal);
     }
   }

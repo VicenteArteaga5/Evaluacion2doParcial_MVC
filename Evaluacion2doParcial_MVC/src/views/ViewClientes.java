@@ -47,7 +47,7 @@ public class ViewClientes extends javax.swing.JPanel {
         jbtn_nuevo = new javax.swing.JButton();
         jbtn_guardar = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         jl_cliente_id.setText("ClienteID:");
 
@@ -98,24 +98,26 @@ public class ViewClientes extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbtn_primero)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtn_anterior)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtn_siguiente)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtn_ultimo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbtn_guardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtn_modificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtn_eliminar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jbtn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jbtn_primero)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtn_anterior)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jbtn_siguiente)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtn_ultimo))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jbtn_guardar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jbtn_modificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtn_eliminar)))
+                        .addGap(45, 45, 45))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbtn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,9 +156,9 @@ public class ViewClientes extends javax.swing.JPanel {
                     .addComponent(jbtn_guardar)
                     .addComponent(jbtn_modificar)
                     .addComponent(jbtn_eliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtn_nuevo)
-                .addGap(75, 75, 75))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -173,7 +175,7 @@ public class ViewClientes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     public javax.swing.JButton jbtn_anterior;
     public javax.swing.JButton jbtn_eliminar;
     public javax.swing.JButton jbtn_guardar;
