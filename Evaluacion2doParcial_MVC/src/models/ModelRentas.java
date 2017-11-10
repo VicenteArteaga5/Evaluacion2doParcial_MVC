@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Vicente Arteaga
@@ -88,12 +89,16 @@ public class ModelRentas {
         return total_renta;
     }
     
-    public void conectar(){
+     public void conectar(){
         try{
-            conexion = DriverManager.getConnection("jdbc:potsgresql:/localhost:5432/Peliculas","potsgres","12345678");
-            st = conexion.createStatement();
+            Class.forName("org.postgresql.Driver");
+            conexion = DriverManager.getConnection("jdbc:postgresql://localhost5432/Peliculas","postgres","12345678");
+            st = conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         } catch (SQLException ex){
             JOptionPane.showMessageDialog(null,"Error 101");   
+        }
+        catch(ClassNotFoundException f){
+            JOptionPane.showMessageDialog(null,"error al conectar");
         }
     }
     

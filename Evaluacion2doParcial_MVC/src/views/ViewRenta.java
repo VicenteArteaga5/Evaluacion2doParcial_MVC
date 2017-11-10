@@ -83,7 +83,7 @@ public class ViewRenta extends javax.swing.JPanel {
 
         jbtn_nuevo.setText("Nuevo");
 
-        jcb_formato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DVD", "BLUE-RAY" }));
+        jcb_formato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DVD", "Blue-ray" }));
 
         jcb_dias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
 
